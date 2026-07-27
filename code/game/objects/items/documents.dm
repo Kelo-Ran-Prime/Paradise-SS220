@@ -9,7 +9,6 @@
 	throw_speed = 1
 	pressure_resistance = 2
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
-	new_attack_chain = TRUE
 
 /obj/item/documents/Initialize(mapload)
 	. = ..()

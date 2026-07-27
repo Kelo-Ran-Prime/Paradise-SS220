@@ -10,7 +10,6 @@
 	cares_about_temperature = TRUE
 	var/state
 	var/datum/gas_mixture/air_contents = null
-	new_attack_chain = TRUE
 
 /obj/item/latexballon/Destroy()
 	QDEL_NULL(air_contents)
@@ -27,7 +26,6 @@
 	user.update_inv_l_hand()
 	to_chat(user, SPAN_NOTICE("You blow up [src] with [tank]."))
 	air_contents = tank.remove_air_volume(3)
-	add_fingerprint(user)
 
 /obj/item/latexballon/proc/burst()
 	if(!air_contents || icon_state != "latexballon_blow")
@@ -61,13 +59,10 @@
 	if(exposed_temperature > T0C+100)
 		burst()
 
-/obj/item/latexballon/item_interaction(mob/living/user, obj/item/used, list/modifiers)
-	if(istype(used, /obj/item/tank))
-		var/obj/item/tank/tank = used
-		blow(tank, user)
-		return ITEM_INTERACT_COMPLETE
-
-	if(used.sharp || used.get_heat() || is_pointed(used))
+/obj/item/latexballon/attackby__legacy__attackchain(obj/item/W, mob/user, params)
+	if(istype(W, /obj/item/tank))
+		var/obj/item/tank/T = W
+		blow(T, user)
+		return
+	if(W.sharp || W.get_heat() || is_pointed(W))
 		burst()
-
-	return ITEM_INTERACT_COMPLETE

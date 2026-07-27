@@ -770,6 +770,7 @@
 		"Кто на ВРИО?",
 		"ИИ, открой кабинет СЕ на секундочку",
 		)
+	unique_pet = TRUE
 	gold_core_spawnable = NO_SPAWN
 	available_channels = list(":e")
 

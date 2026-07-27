@@ -1,6 +1,6 @@
 /obj/item/decorations
 	icon = 'icons/obj/decorations.dmi'
-	new_attack_chain = TRUE
+
 
 //duct tape decorations
 /obj/item/decorations/sticky_decorations
@@ -8,10 +8,13 @@
 
 /obj/item/decorations/sticky_decorations/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/ducttape, src, null, 0, 0, TRUE) // Add this to something to make it sticky but without the tape overlay.
+	AddComponent(/datum/component/ducttape, src, null, 0, 0, TRUE)//add this to something to make it sticky but without the tape overlay
+
+
 
 /obj/item/decorations/sticky_decorations/flammable
 	resistance_flags = FLAMMABLE
+
 
 //Non-holiday decorations
 
@@ -151,6 +154,8 @@
 
 //Valentines decorations
 
+
+
 /obj/item/decorations/sticky_decorations/flammable/arrowed_heart
 	name = "paper heart"
 	desc = "A paper heart. It's been shot through and Cupid is to blame!"
@@ -201,6 +206,9 @@
 
 /obj/item/decorations/sticky_decorations/flammable/easter_egg/orange
 	icon_state = "decoration_easter_egg_orange"
+
+
+
 
 ///////
 //Decorative structures
